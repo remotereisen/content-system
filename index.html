@@ -407,25 +407,7 @@ async function load(){
     if(!accs.length){const na={id:uid(),name:'Main Account',color:COLORS[0],best_times:['18:00','20:00']};await sb.insert('cb_accounts',na);accs=[na];}
     if(!curAcc||!accs.find(a=>a.id===curAcc)){curAcc=accs[0].id;localStorage.setItem('cb_acc',curAcc);}
     insAcc=insAcc||curAcc;
-    if(!tpls.length){const dt=[{id:uid(),name:'Engagement Boost',text:'Was denkst du darüber? 👇
-Schreib mir in die Kommentare!
-.
-#instagram #content #community'},{id:uid(),name:'Produkt-Post',text:'✨ NEU!
-
-Hier ist was du wissen musst:
-→ 
-→ 
-→ 
-
-Link in Bio 🔗
-.
-#neu #sale'},{id:uid(),name:'Motivations-Post',text:'Denk daran: 💪
-
-[Zitat hier]
-
-Save this for later! 🔖
-.
-#motivation #mindset'}];for(const t of dt)await sb.insert('cb_templates',t);tpls=dt;}
+if(!tpls.length){const dt=[{id:uid(),name:'Engagement Boost',text:'Was denkst du darüber? 👇\nSchreib mir in die Kommentare!\n.\n#instagram #content #community'},{id:uid(),name:'Produkt-Post',text:'✨ NEU!\n\nHier ist was du wissen musst:\n→ \n→ \n→ \n\nLink in Bio 🔗\n.\n#neu #sale'},{id:uid(),name:'Motivations-Post',text:'Denk daran: 💪\n\n[Zitat hier]\n\nSave this for later! 🔖\n.\n#motivation #mindset'}];for(const t of dt)await sb.insert('cb_templates',t);tpls=dt;}
     setSync('ok');document.getElementById('loading').style.display='none';renderHome();
   }catch(e){setSync('err');document.getElementById('loading').style.display='none';toast('⚠️ Verbindungsfehler',3000);renderHome();}
 }
